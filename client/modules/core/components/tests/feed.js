@@ -20,11 +20,6 @@ describe('core.components.feed', () => {
     }
   ];
 
-  it('should list given number of tweets', () => {
-    const element = shallow(<Feed tweets={tweets}/>);
-    expect(element.find('.tweet').length).to.be.equal(tweets.length);
-  });
-
   it('should display the body for each tweet', () => {
     const element = shallow(<Feed tweets={tweets}/>);
     const tweetElements = element.find('.tweet');
