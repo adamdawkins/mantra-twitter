@@ -6,12 +6,14 @@ import Feed from '../feed.jsx';
 describe('core.components.feed', () => {
   const tweets = [
     {
+      _id: '1235ns,heonthu',
       body: 'This is Adam\'s Tweet!',
       username: 'adamdawkins',
       avatar: 'http://placehold.it/40x40'
     },
 
     {
+      _id: 'anoetuhaoneuth',
       body: '@adamdawkins I disagree! You are owned by Twitter.',
       username: 'aral',
       avatar: 'http://placehold.it/40x40'
