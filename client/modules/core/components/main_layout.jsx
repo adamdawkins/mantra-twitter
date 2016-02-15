@@ -10,3 +10,5 @@ const Layout = ({content = () => null }) => (
     </main>
   </div>
 )
+
+export default Layout;
