@@ -1,5 +1,5 @@
-// import posts from './posts';
+import tweets from './tweets';
 
 export default function () {
-  // posts();
+  tweets();
 }

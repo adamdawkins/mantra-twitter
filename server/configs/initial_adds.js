@@ -1,19 +1,18 @@
 import {HTTP} from 'meteor/http';
-import {EJSON} from 'meteor/ejson';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
 import Tweets from '/lib/collections';
 import {Fake} from 'meteor/anti:fake';
+import {Random} from 'meteor/random';
 
 export default function () {
-  const userCount = Meteor.users.find().count()
+  const userCount = Meteor.users.find().count();
   if (userCount === 0) {
     HTTP.get('http://api.randomuser.me?results=20&key=6UG7-KN2H-NJ7M-DRX0', (error, result) => {
-      if(error) {
-        console.error(error)
+      if (error) {
+        console.error(error);
       } else {
         result.data.results.forEach(object => {
-          //console.log(object.user); 
           const {username, name, picture, email, password} = object.user;
           const profile = {name, picture};
           const user = {username, email, password, profile};
@@ -25,7 +24,7 @@ export default function () {
     console.log(`You have ${userCount} users!`);
 
     if (Tweets.find().count() === 0) {
-      const users = Meteor.users.find().fetch()
+      const users = Meteor.users.find().fetch();
       for (let i = 0; i < 50; i++) {
         const user = Random.choice(users);
         const body = Fake.sentence().substring(0, 140);

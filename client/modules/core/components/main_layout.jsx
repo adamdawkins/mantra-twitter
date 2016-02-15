@@ -9,6 +9,6 @@ const Layout = ({content = () => null }) => (
       {content()}
     </main>
   </div>
-)
+);
 
 export default Layout;
