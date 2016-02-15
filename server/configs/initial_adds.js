@@ -2,6 +2,8 @@ import {HTTP} from 'meteor/http';
 import {EJSON} from 'meteor/ejson';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
+import Tweets from '/lib/collections';
+import {Fake} from 'meteor/anti:fake';
 
 export default function () {
   const userCount = Meteor.users.find().count()
@@ -21,8 +23,21 @@ export default function () {
     });
   } else {
     console.log(`You have ${userCount} users!`);
-    Meteor.users.find().fetch().forEach( user => {
-      console.log(user);
-    });
+
+    if (Tweets.find().count() === 0) {
+      const users = Meteor.users.find().fetch()
+      for (let i = 0; i < 50; i++) {
+        const user = Random.choice(users);
+        const body = Fake.sentence().substring(0, 140);
+        const tweet = {
+          body,
+          authorId: user._id,
+          username: user.username,
+          avatar: user.profile.picture.thumbnail
+        };
+
+        Tweets.insert(tweet);
+      }
+    }
   }
 }

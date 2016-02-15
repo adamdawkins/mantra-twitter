@@ -26,3 +26,4 @@ http
 ejson
 accounts-base
 accounts-password
+anti:fake

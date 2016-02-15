@@ -6,6 +6,7 @@ aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.1-modules.5
+anti:fake@0.4.1
 audit-argument-checks@1.0.4
 autoupdate@1.2.5-modules.5
 babel-compiler@6.4.0-modules.5
