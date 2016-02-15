@@ -1,7 +1,7 @@
 import {HTTP} from 'meteor/http';
 import {Accounts} from 'meteor/accounts-base';
 import {Meteor} from 'meteor/meteor';
-import Tweets from '/lib/collections';
+import {Tweets} from '/lib/collections';
 import {Fake} from 'meteor/anti:fake';
 import {Random} from 'meteor/random';
 
