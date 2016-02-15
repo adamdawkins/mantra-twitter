@@ -1,9 +1,9 @@
 const { describe, it } = global;
 import {expect} from 'chai';
 import {stub, spy} from 'sinon';
-import {composer} from '../tweetlist';
+import {composer} from '../feed';
 
-describe('core.containers.tweetlist', () => {
+describe('core.containers.feed', () => {
   describe('composer', () => {
     it('should subscribe to tweets.all', () => {
       const Meteor = {subscribe: stub()};

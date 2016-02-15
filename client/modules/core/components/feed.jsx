@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TweetList = ({tweets}) => (
-  <div className="tweet-list">
+const Feed = ({tweets}) => (
+  <div className="feed">
     {tweets.map( (tweet) => (
       <div className="tweet" key={tweet._id}>
         <img className="tweet__avatar" src={tweet.avatar} />
@@ -13,4 +13,4 @@ const TweetList = ({tweets}) => (
   </div>
 );
 
-export default TweetList;
+export default Feed;

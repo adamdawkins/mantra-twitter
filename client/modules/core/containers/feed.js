@@ -1,4 +1,4 @@
-import TweetList from '../components/tweetlist.jsx';
+import Feed from '../components/feed.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context}, onData) => {
@@ -12,4 +12,4 @@ export const composer = ({context}, onData) => {
 export default composeAll(
   composeWithTracker(composer),
   useDeps()
-)(TweetList);
+)(Feed);

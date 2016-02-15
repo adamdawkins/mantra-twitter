@@ -1,6 +1,6 @@
 import React from 'react'; import {mount} from 'react-mounter';
 import MainLayout from './components/main_layout.jsx';
-import TweetList from './containers/tweetlist.js';
+import Feed from './containers/feed.js';
 
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
@@ -9,7 +9,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'home',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<TweetList/>)
+        content: () => (<Feed/>)
       });
     }
   });

@@ -1,9 +1,9 @@
 const {describe, it} = global;
 import {expect} from 'chai';
 import {shallow} from 'enzyme';
-import TweetList from '../tweetlist.jsx';
+import Feed from '../feed.jsx';
 
-describe('core.components.tweetlist', () => {
+describe('core.components.feed', () => {
   const tweets = [
     {
       body: 'This is Adam\'s Tweet!',
@@ -19,12 +19,12 @@ describe('core.components.tweetlist', () => {
   ];
 
   it('should list given number of tweets', () => {
-    const element = shallow(<TweetList tweets={tweets}/>);
+    const element = shallow(<Feed tweets={tweets}/>);
     expect(element.find('.tweet').length).to.be.equal(tweets.length);
   });
 
   it('should display the body for each tweet', () => {
-    const element = shallow(<TweetList tweets={tweets}/>);
+    const element = shallow(<Feed tweets={tweets}/>);
     const tweetElements = element.find('.tweet');
 
     tweetElements.forEach((tweetElement, index) => {
@@ -35,7 +35,7 @@ describe('core.components.tweetlist', () => {
   });
 
   it('should display the username for each tweet', () => {
-    const element = shallow(<TweetList tweets={tweets}/>);
+    const element = shallow(<Feed tweets={tweets}/>);
     const tweetElements = element.find('.tweet');
 
     tweetElements.forEach((tweetElement, index) => {
@@ -46,7 +46,7 @@ describe('core.components.tweetlist', () => {
   });
 
   it('should display the avatar for each tweet', () => {
-    const element = shallow(<TweetList tweets={tweets}/>);
+    const element = shallow(<Feed tweets={tweets}/>);
     const tweetElements = element.find('.tweet');
 
     tweetElements.forEach((tweetElement, index) => {
