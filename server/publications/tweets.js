@@ -5,7 +5,7 @@ export default function () {
   Meteor.publish('tweets.all', function () {
     const selector = {};
     const options = {
-      sort: {createtAt: -1}
+      sort: {createdAt: -1}
     };
 
     return Tweets.find(selector, options);

@@ -1,5 +1,5 @@
-// import posts from './posts';
+import fakes from './fakes';
 
 export default function () {
-  // posts();
+  fakes();
 }
