@@ -6,6 +6,6 @@ const Tweet = ({tweet}) => (
     <h2 className="tweet__username">{tweet.username}</h2>
     <p className="tweet__body">{tweet.body}</p>
   </div>
-)
+);
 
 export default Tweet;

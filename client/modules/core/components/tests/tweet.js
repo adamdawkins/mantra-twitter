@@ -1,6 +1,6 @@
 const {describe, it} = global;
 import {expect} from 'chai';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 import Tweet from '../tweet.jsx';
 
 describe('core.components.tweet', () => {
