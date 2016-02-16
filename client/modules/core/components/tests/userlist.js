@@ -13,6 +13,9 @@ describe('core.components.userlist', () => {
           title: 'Mr',
           first: 'Adam',
           last: 'Dawkins'
+        },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/76.jpg'
         }
       }
     },
@@ -24,6 +27,9 @@ describe('core.components.userlist', () => {
           title: 'Mr',
           first: 'John',
           last: 'Norris'
+        },
+        picture: {
+          thumbnail: 'https://randomuser.me/api/portraits/thumb/men/76.jpg'
         }
       }
     }
