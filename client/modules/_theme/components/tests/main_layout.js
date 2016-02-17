@@ -5,11 +5,11 @@ import MainLayout from '../main_layout.jsx';
 
 describe('_theme.components.main_layout', () => {
   it('should render children', () => {
-    const Comp = () => (<p>Hello</p>);
+    const component = () => (<p>Hello</p>);
     const el = shallow(
-      <MainLayout content={() => (<Comp />)}/>
+      <MainLayout content={() => (<component />)}/>
     );
 
-    expect(el.contains(<Comp />)).to.be.equal(true);
+    expect(el.contains(<component />)).to.be.equal(true);
   });
 });
