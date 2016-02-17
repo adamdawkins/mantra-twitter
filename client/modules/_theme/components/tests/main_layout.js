@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 import MainLayout from '../main_layout.jsx';
 
-describe('core.components.main_layout', () => {
+describe('_theme.components.main_layout', () => {
   it('should render children', () => {
     const Comp = () => (<p>Hello</p>);
     const el = shallow(
