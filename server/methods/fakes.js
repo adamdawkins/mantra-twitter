@@ -1,4 +1,6 @@
 import {Meteor} from 'meteor/meteor';
+import {Fake} from 'meteor/anti:fake';
+import {Random} from 'meteor/random';
 import {Tweets} from '/lib/collections';
 
 export default function () {
