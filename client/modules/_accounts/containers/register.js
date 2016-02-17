@@ -2,7 +2,9 @@ import Register from '../components/register.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, clearErrors}, onData) => {
-  onData(null, {});
+  const {LocalState} = context();
+  const error = LocalState.get('REGISTER_ERROR');
+  onData(null, {error});
 };
 
 export const depsMapper = (context, actions) => ({
