@@ -9,7 +9,7 @@ export const composer = ({context, clearErrors}, onData) => {
 
 export const depsMapper = (context, actions) => ({
   create: actions.accounts.create,
-  content: () => context
+  context: () => context
 });
 
 export default composeAll(
