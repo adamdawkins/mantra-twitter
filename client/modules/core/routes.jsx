@@ -1,15 +1,15 @@
 import React from 'react'; import {mount} from 'react-mounter';
-import MainLayout from './components/main_layout.jsx';
+import {Layout} from '/client/configs/theme.jsx';
 import Feed from './containers/feed.js';
 import UserList from './containers/userlist.js';
 
 export default function (injectDeps, {FlowRouter}) {
-  const MainLayoutCtx = injectDeps(MainLayout);
+  const context = injectDeps(Layout);
 
   FlowRouter.route('/', {
     name: 'home',
     action() {
-      mount(MainLayoutCtx, {
+      mount(context, {
         content: () => (<Feed/>)
       });
     }
@@ -18,7 +18,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/users', {
     name: 'users',
     action() {
-      mount(MainLayoutCtx, {
+      mount(context, {
         content: () => (<UserList/>)
       });
     }
