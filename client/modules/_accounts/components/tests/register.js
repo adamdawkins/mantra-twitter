@@ -46,7 +46,7 @@ describe('_account.components.register', () => {
       password: {value: submittedPassword}
     };
 
-    component.find('form').simulate('submit');
+    component.find('form').simulate('submit', {preventDefault: () => {}});
   });
 
 });

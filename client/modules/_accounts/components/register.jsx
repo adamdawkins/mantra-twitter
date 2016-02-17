@@ -13,7 +13,9 @@ class Register extends React.Component {
       </div>
     );
   }
-  createUser() {
+  createUser(event) {
+    event.preventDefault();
+
     const {create} = this.props;
     const {username, email, password} = this.refs;
     const options = {
