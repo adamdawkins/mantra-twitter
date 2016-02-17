@@ -1,6 +1,6 @@
 import React from 'react'; import {mount} from 'react-mounter';
 import {Layout} from '/client/configs/theme.jsx';
-import Register from './components/register.jsx';
+import Register from './containers/register';
 
 export default function (injectDeps, {FlowRouter}) {
   const context = injectDeps(Layout);
