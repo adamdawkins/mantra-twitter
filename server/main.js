@@ -6,4 +6,4 @@ import fakeTweeting from './configs/fake_tweeting.js';
 publications();
 methods();
 addInitialData();
-fakeTweeting();
+// fakeTweeting();
