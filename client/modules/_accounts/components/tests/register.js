@@ -14,11 +14,6 @@ describe('_account.components.register', () => {
     expect(component.find('[name="email"]').length).to.be.equal(1);
   });
 
-  it('should have an email form field', () => {
-    const component = shallow(<Register/>);
-    expect(component.find('[name="email"]').length).to.be.equal(1);
-  });
-
   it('should have a password form field', () => {
     const component = shallow(<Register/>);
     expect(component.find('[name="password"]').length).to.be.equal(1);
