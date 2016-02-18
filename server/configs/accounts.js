@@ -1,7 +1,7 @@
 import {Accounts} from 'meteor/accounts-base';
 
 Accounts.onCreateUser( (options, user) => {
-  const profile = Boolean(options.profile) ? options.profile : {};
+  const profile = options.profile || {};
 
   if (!profile.picture) {
     profile.picture = {
