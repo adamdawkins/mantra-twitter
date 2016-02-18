@@ -14,6 +14,22 @@ export default {
       }
       FlowRouter.go('/');
     });
+  },
+
+  login({Meteor, LocalState, FlowRouter}, identifier, password) {
+    if (!identifier || !password) {
+      return LocalState.set('LOGIN_ERROR', 'username or email address and password are required');
+    }
+
+    LocalState.set('LOGIN_ERROR', null);
+
+    Meteor.loginWithPassword(identifier, password, (error) => {
+      if (error) {
+        return LocalState.set('LOGIN_ERROR', error.reason);
+      }
+
+      FlowRouter.go('/');
+    });
   }
 
 };
