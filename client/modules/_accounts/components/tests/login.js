@@ -4,6 +4,12 @@ import {shallow} from 'enzyme';
 import Login from '../login.jsx';
 
 describe('_account.components.login', () => {
+  it('should show any errors that exist', () => {
+    const error = 'TheError';
+    const component = shallow(<Login error={error}/>);
+    expect(component.html()).to.match(/TheError/);
+  });
+
   it('should have a "username or email" form field', () => {
     const component = shallow(<Login/>);
     expect(component.find('[name="username_or_email"]').length).to.be.equal(1);
@@ -20,29 +26,25 @@ describe('_account.components.login', () => {
     expect(component.find('[type="submit"]').length).to.be.equal(1);
   });
 
-  // it('should pass the form values to the create function when submitted', done => {
-  //   const submittedUsername = 'adamdawkins';
-  //   const submittedEmail = 'adamdawkins@gmail.com';
-  //   const submittedPassword = 'password';
-  //
-  //   const onCreate = (options) => {
-  //     const {username, email, password} = options;
-  //     expect(username).to.be.equal(submittedUsername);
-  //     expect(email).to.be.equal(submittedEmail);
-  //     expect(password).to.be.equal(submittedPassword);
-  //     done();
-  //   };
-  //
-  //   const component = shallow(<Login create={onCreate} />);
-  //   const instance = component.instance();
-  //
-  //   instance.refs = {
-  //     username: {value: submittedUsername},
-  //     email: {value: submittedEmail},
-  //     password: {value: submittedPassword}
-  //   };
-  //
-  //   component.find('form').simulate('submit', {preventDefault: () => {}});
-  // });
+  it('should pass the form values to the login function when submitted', done => {
+    const submittedIdentifier = 'adamdawkins';
+    const submittedPassword = 'password';
+
+    const onLogin = (identifier, password) => {
+      expect(identifier).to.be.equal(submittedIdentifier);
+      expect(password).to.be.equal(submittedPassword);
+      done();
+    };
+
+    const component = shallow(<Login login={onLogin} />);
+    const instance = component.instance();
+
+    instance.refs = {
+      identifier: {value: submittedIdentifier},
+      password: {value: submittedPassword}
+    };
+
+    component.find('form').simulate('submit', {preventDefault: () => {}});
+  });
 
 });
