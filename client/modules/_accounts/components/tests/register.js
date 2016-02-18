@@ -4,6 +4,12 @@ import {shallow} from 'enzyme';
 import Register from '../register.jsx';
 
 describe('_account.components.register', () => {
+  it('should show any errors that exist', () => {
+    const error = 'TheError';
+    const component = shallow(<Register error={error}/>);
+    expect(component.html()).to.match(/TheError/);
+  });
+
   it('should have a username form field', () => {
     const component = shallow(<Register/>);
     expect(component.find('[name="username"]').length).to.be.equal(1);
