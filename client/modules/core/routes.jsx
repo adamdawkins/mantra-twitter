@@ -7,7 +7,7 @@ export default function (injectDeps, {FlowRouter}) {
   const context = injectDeps(Layout);
 
   FlowRouter.route('/', {
-    name: 'home',
+    name: 'feed',
     action() {
       mount(context, {
         content: () => (<Feed/>)
