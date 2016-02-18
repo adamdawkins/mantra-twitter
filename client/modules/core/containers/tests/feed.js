@@ -5,6 +5,16 @@ import {composer} from '../feed';
 
 describe('core.containers.feed', () => {
   describe('composer', () => {
+    it('should call authorize()', () => {
+      const Meteor = {subscribe: stub()};
+      Meteor.subscribe.returns({ready: () => false});
+      const authorize = spy();
+      const context = () => ({Meteor});
+      const onData = spy();
+
+      composer({context, authorize}, onData);
+      expect(authorize.calledOnce).to.equal(true);
+    });
     it('should subscribe to tweets.all', () => {
       const Meteor = {subscribe: stub()};
       Meteor.subscribe.returns({ready: () => false});
@@ -33,6 +43,11 @@ describe('core.containers.feed', () => {
         composer({context}, onData);
         expect(onData.args[0]).to.deep.equal([ null, {tweets} ]);
       });
+    });
+  });
+  describe('depsMapper', () => {
+    describe('actions', () => {
+      it('should map actions.users.authorize');
     });
   });
 });
