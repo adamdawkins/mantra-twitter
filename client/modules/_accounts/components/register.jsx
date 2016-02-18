@@ -2,8 +2,12 @@ import React from 'react';
 
 class Register extends React.Component {
   render() {
+    const {error} = this.props;
+
     return (
       <div>
+        <h2>Sign up</h2>
+        {error ? (<p className="error">{error}</p>) : null}
         <form onSubmit={this.createUser.bind(this)}>
           <input type="text" name="username" ref="username" placeholder="Username"/>
           <input type="email" name="email" ref="email" placeholder="Email address:"/>
