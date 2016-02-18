@@ -99,6 +99,7 @@ describe('_accounts.actions.accounts', () => {
       });
     });
   });
+
   describe('login', () => {
     it('should reject if identifier is not present', () => {
       const LocalState = {set: spy()};
@@ -147,7 +148,7 @@ describe('_accounts.actions.accounts', () => {
       describe('if there is an error', () => {
         it('should set LOGIN_ERROR with the error reason');
         /*
-         * I Have no idea why this is failing
+         * TODO: I Have no idea why this is failing
         it('should set LOGIN_ERROR with the error reason', () => {
           const Meteor = {loginWithPassword: stub()};
           const LocalState = {set: spy()};
