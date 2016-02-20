@@ -4,13 +4,14 @@ import Feed from './containers/feed.js';
 import UserList from './containers/userlist.js';
 
 export default function (injectDeps, {FlowRouter}) {
-  const context = injectDeps(Layout);
+  const publicContext = injectDeps(Layout);
 
   FlowRouter.route('/', {
     name: 'feed',
     action() {
-      mount(context, {
-        content: () => (<Feed/>)
+      mount(publicContext, {
+        content: () => (<Feed/>),
+        authRequired: true
       });
     }
   });
@@ -18,7 +19,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/users', {
     name: 'users',
     action() {
-      mount(context, {
+      mount(publicContext, {
         content: () => (<UserList/>)
       });
     }
