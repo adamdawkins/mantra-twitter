@@ -30,6 +30,12 @@ export default {
 
       FlowRouter.go('/');
     });
+  },
+
+  logout({Meteor, FlowRouter}) {
+    Meteor.logout(() => {
+      FlowRouter.go('/');
+    });
   }
 
 };

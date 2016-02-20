@@ -179,4 +179,27 @@ describe('_accounts.actions.accounts', () => {
       });
     });
   });
+
+  describe('logout', () => {
+    it('should call Meteor.logout', () => {
+      const Meteor = {logout: spy()};
+      const LocalState = {set: spy()};
+      actions.logout({Meteor, LocalState});
+      expect(Meteor.logout.calledOnce).to.be.equal(true);
+      expect(Meteor.logout.args[0][0]).to.be.a('function');
+    });
+    describe('after Meteor.logout()', () => {
+      it('should redirect to the root', () => {
+        const Meteor = {logout: stub()};
+        const LocalState = {set: spy()};
+        const FlowRouter = {go: spy()};
+
+        Meteor.logout.callsArg(0);
+
+        actions.logout({Meteor, LocalState, FlowRouter}, 'username', 'password');
+        expect(FlowRouter.go.args[0][0]).to.be.equal('/');
+      });
+    });
+  });
+
 });
