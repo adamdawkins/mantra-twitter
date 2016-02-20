@@ -12,7 +12,12 @@ export const composer = ({context}, onData) => {
   onData(null, {loggedIn, username});
 };
 
+export const depsMapper = (context, actions) => ({
+  logout: actions.accounts.logout,
+  context: () => context
+});
+
 export default (component) => composeAll(
   composeWithTracker(composer),
-  useDeps()
+  useDeps(depsMapper)
 )(component);
