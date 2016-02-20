@@ -1,10 +1,13 @@
 import React from 'react';
+import _userControls from './user-controls.jsx';
+import authContainer from '../../_accounts/containers/auth';
+const UserControls = authContainer(_userControls);
 
 const Layout = ({content = () => null }) => (
   <div>
     <header>
       <h1>Mantra Twitter</h1>
-      <a href="/register">Sign Up</a> | <a href="/login">Login</a>
+      <UserControls/>
     </header>
     <main>
       {content()}
