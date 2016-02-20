@@ -1,5 +1,6 @@
 const {describe, it} = global;
 import {expect} from 'chai';
+import {spy} from 'sinon';
 import {shallow} from 'enzyme';
 import UserControls from '../user-controls.jsx';
 
@@ -15,6 +16,18 @@ describe('_theme.components.user-controls', () => {
     it('should show a logout link', () => {
       expect(component.html()).to.match(/log\s?out/i);
     });
+
+    describe('logout clicked', () => {
+      it('should call the logout action', () => {
+        const logoutAction = spy();
+        const event = {preventDefault: () => {}};
+        const componentWithLogout = shallow(
+          <UserControls loggedIn={true} username={username} logout={logoutAction}/>
+        );
+        componentWithLogout.find('#logout').simulate('click', event);
+        expect(logoutAction.calledOnce).to.be.equal(true);
+      });
+    });
   });
 
   describe('if user not logged in', () => {
@@ -28,4 +41,5 @@ describe('_theme.components.user-controls', () => {
       expect(component.html()).to.match(/log\s?in/i);
     });
   });
+
 });

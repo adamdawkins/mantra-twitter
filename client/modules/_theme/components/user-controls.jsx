@@ -1,13 +1,24 @@
 import React from 'react';
 
 export default class extends React.Component {
+  onLogout(event) {
+    event.preventDefault();
+    const {logout} = this.props;
+    return logout();
+  }
+
   loggedInContent() {
     const {username} = this.props;
 
     return (
       <div>
         <ul>
-          <li>Logged in as {username} <a href="/logout">Logout</a></li>
+          <li>
+            Logged in as {username}
+            <a onClick={this.onLogout.bind(this)}
+              id="logout"
+              href="/logout">Logout</a>
+          </li>
         </ul>
       </div>
     );
