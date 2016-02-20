@@ -3,7 +3,7 @@ import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, authorize}, onData) => {
   const {Meteor, Collections} = context();
-  authorize();
+  // authorize();
 
   if (Meteor.subscribe('tweets.all').ready()) {
     const tweets = Collections.Tweets.find({}, {
