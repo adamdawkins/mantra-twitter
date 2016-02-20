@@ -35,7 +35,7 @@ describe('_account.components.register', () => {
     const submittedEmail = 'adamdawkins@gmail.com';
     const submittedPassword = 'password';
 
-    const onCreate = (options) => {
+    const createAction = (options) => {
       const {username, email, password} = options;
       expect(username).to.be.equal(submittedUsername);
       expect(email).to.be.equal(submittedEmail);
@@ -43,7 +43,7 @@ describe('_account.components.register', () => {
       done();
     };
 
-    const component = shallow(<Register create={onCreate} />);
+    const component = shallow(<Register create={createAction} />);
     const instance = component.instance();
 
     instance.refs = {
