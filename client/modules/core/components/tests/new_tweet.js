@@ -33,15 +33,11 @@ describe('core.components.NewTweet', () => {
     const component = shallow(<NewTweet/>);
     const instance = component.instance();
     instance.refs = {
-      tweetBody: {value: 'a'},
-      tweetCharacterCount: {value: '140'}
+      tweetBody: {value: 'a'}
     };
-    const tweetBodyField = component.find('[name="new-tweet__body"]');
-    const characterCountField = component.find('.new-tweet__character-count');
 
+    component.find('[name="new-tweet__body"]').simulate('keyup');
 
-    tweetBodyField.simulate('keypress');
-
-    expect(characterCountField.props().children).to.be.equal('139');
+    expect(component.state().charactersRemaining).to.be.equal(139);
   });
 });
