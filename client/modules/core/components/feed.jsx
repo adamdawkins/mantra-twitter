@@ -1,6 +1,6 @@
 import React from 'react';
 import Tweet from './tweet.jsx';
-import NewTweet from './new_tweet.jsx';
+import NewTweet from '../containers/new_tweet';
 
 const Feed = ({tweets}) => (
   <div className="feed">
